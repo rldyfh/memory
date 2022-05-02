@@ -1,0 +1,5 @@
+package toy01;
+
+public class SessionConst {
+    public static final String LOGIN_MEMBER = "loginMember";
+}

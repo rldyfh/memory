@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <title>login</title>
+</head>
+<body>
+<form action="/login" method="post" th:object="${loginForm}">
+
+  <div th:if="${#fields.hasGlobalErrors()}">
+    <p class="field-error" th:each="err : ${#fields.globalErrors()}"
+       th:text="${err}">전체 오류 메시지</p>
+  </div>
+
+  <div class="container">
+    <label for="username"><b>Username</b></label>
+    <input type="text" placeholder="Enter Username" th:field="*{username}">
+      <div th:errors="*{username}"></div>
+  </div>
+
+  <div class="container">
+    <label for="password"><b>Password</b></label>
+    <input type="password" placeholder="Enter Password" th:field="*{password}">
+      <div th:errors="*{password}"></div>
+  </div>
+  <div class="container">
+    <button type="submit">Login</button>
+  </div>
+
+
+  <div class="container" style="background-color:#f1f1f1">
+    <a href="/"><button type="button" class="cancelbtn">Cancel</button></a>
+    <span class="psw">Forgot <a href="#">password?</a></span>
+  </div>
+</form>
+</body>
+</html>

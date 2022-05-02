@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<form th:action="@{|/postings/*{id}/edit|}" method="post" th:object="${posting}">
+    <label for="title">글 제목</label>
+    <input type="text" th:field="*{title}">
+    <div th:errors="*{title}"></div>
+
+    <label for="content">본문</label>
+    <textarea th:field="*{content}"
+              rows="40" cols="70" ></textarea>
+    <div th:errors="*{content}"></div>
+
+    <button type="submit">글 수정</button>
+</form>
+</body>
+</html>
